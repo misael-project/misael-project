@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~react-toastify/dist/ReactToastify.min.css';
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  color: #5f5f5f;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+.highlight-text{
+  color: #ed9189;
+}
+
+.highlight-title{
+  color: #ed9189;
+  /* text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; */
+}
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
+.mySwiper {
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  opacity: 0.4;
+  @media only screen and (max-width: 600px) {
+    width: 60%;
+  };
+  @media only screen and (min-width: 601px) {
+    width: 30%;
+  };
+}
+
+.mySwiper .swiper-slide-active {
+  opacity: 1;
+}
+
+.cafaSwiper {
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.cafaSwiper .swiper-slide {
+  opacity: 0.4;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  };
+  @media only screen and (min-width: 601px) {
+    width: 100%;
+  };
+}
+
+.cafaSwiper .swiper-slide-active {
+  opacity: 1;
+}
