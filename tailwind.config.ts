@@ -15,6 +15,9 @@ const config: Config = {
       },
     },
   },
+  colors: {
+    'red': '#ed9189'
+  },
   plugins: [],
 };
 export default config;

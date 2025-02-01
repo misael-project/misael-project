@@ -1,11 +1,12 @@
 import React from "react"
 import Image from "next/image";
 import ContentTemplate from "./content-template"
+import Divider from "./Divider";
 
 export default function IntroSection(){
   return (
     <ContentTemplate sectionId="intro">
-      <>
+      <div className="w-screen">
         <Image
           src="/misaelLogo.png"
           // className="dark:invert"
@@ -15,10 +16,28 @@ export default function IntroSection(){
           sizes="50vw"
           style={{ width: '100%', height: 'auto' }}
         />
-        <h2 className="text-4xl font-bold text-center text-gray-600">
-          Your <span className="font-bold highlight-text">comrade</span> in your creative journey
+        <div className="my-2 mx-2">
+          <div className="flex w-100 justify-start mx-2">
+            <svg className="mx-2 my-2" width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" x="0" y="0" fill="#ed9189"/>
+            </svg>
+            <svg className="mx-2 my-2" width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" x="0" y="0" fill="#ed9189"/>
+            </svg>
+            <svg className="mx-2 my-2" width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" x="0" y="0" fill="#ed9189"/>
+            </svg>
+          </div>
+          <hr className="border-red-300 border-2"/>
+        </div>
+        <h2 className="text-4xl font-bold text-center text-gray-600 my-6">
+          Your <span className="font-bold highlight-text">comrade</span> 
         </h2>
-      </>
+        <h2 className="text-4xl font-bold text-center text-gray-600 my-6">
+          in creative journey
+        </h2>
+        <Divider />
+      </div>
     </ContentTemplate>
   )
 }
