@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center w-full font-sans">
+    <main className="flex flex-col items-center font-sans">
       <Navbar />
       <IntroSection />
       <AboutSection />
