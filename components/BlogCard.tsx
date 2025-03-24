@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function BlogCard({post}) {
   function formatDate(string: string){
     var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(string).toLocaleDateString([],options);
+    return new Date(string).toLocaleDateString([]);
   }
   return (
     <a
