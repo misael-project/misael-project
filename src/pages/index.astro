@@ -1,0 +1,98 @@
+---
+import "@fontsource/inter/variable.css";
+import Events from "~/components/events.astro";
+import About from "~/components/about.astro";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import Intro from "~/components/intro.astro";
+// import Affiliates from "~/components/affiliates.astro";
+import Contact from "~/components/contact.astro";
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const image = new URL("misaelLogoDark.png", site);
+const description =
+  "Misael Project; one-stop solution to support local creations and community development";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="light">
+  <head>  
+    <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KL9HDTWD');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/misael-icon.png" type="image/png" />
+    <meta name="generator" content={generator} />
+
+    <title>Misael Project</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="Misael Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- initialize theme -->
+    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-6KEMLSRQEV"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-6KEMLSRQEV');
+    </script>
+
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL9HDTWD"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <Header />
+    <div class="space-y-12 py-32">
+      <Intro />
+      <About />
+      <Events />
+      <!-- <Affiliates /> -->
+      <Contact />
+    </div>
+    <Footer />
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "firebase/app";
+      import { getAnalytics } from "firebase/analytics";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAZ_BL8Nf2KGephRdk5Ll7Pi3uC1qxJZXY",
+        authDomain: "misael-project.firebaseapp.com",
+        projectId: "misael-project",
+        storageBucket: "misael-project.appspot.com",
+        messagingSenderId: "197841362101",
+        appId: "1:197841362101:web:bf381000c962b2960af2fc",
+        measurementId: "G-6KEMLSRQEV"
+      };
+
+      // Initialize Firebase
+      // const app = initializeApp(firebaseConfig);
+      // const analytics = getAnalytics(app);
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </body>
+</html>
+

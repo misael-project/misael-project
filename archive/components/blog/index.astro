@@ -1,0 +1,21 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import Card from "./card.astro"
+
+const { posts } = Astro.props;
+---
+
+<ContentSection id="intro">
+  <Fragment>
+    <h2 class="text-4xl font-bold text-center">
+      <span class="font-bold highlight-text">Blog</span> Posts
+    </h2>
+    <div class="max-w-6xl py-12 grid">
+      {
+        posts.map((post) => (
+          <Card post={post} />
+        ))
+      }
+    </div>
+  </Fragment>
+</ContentSection>

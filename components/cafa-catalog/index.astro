@@ -1,0 +1,22 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from "~/components/cafa-catalog/circle-card.astro";
+import type { CafaCircleData } from "~/types";
+
+export interface Props {
+  circles: CafaCircleData[];
+}
+
+const {circles} = Astro.props;
+---
+
+<ContentSection title="CAFA Circles" id="showcase">
+  <Fragment slot="lead">
+    Check out their catalogues!
+  </Fragment>
+  <div class="max-w-6xl space-y-2 my-12">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-3">
+      {circles.map((circle) => <ShowcaseCard circle={circle} />)}
+    </div>
+  </div>
+</ContentSection>

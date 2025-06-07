@@ -1,0 +1,24 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import { Image } from '@astrojs/image/components';
+import {
+  BackgroundImage,
+} from "astro-imagetools/components";
+
+
+const items = ["https://swiperjs.com/demos/images/nature-2.jpg", "https://swiperjs.com/demos/images/nature-2.jpg", "https://swiperjs.com/demos/images/nature-2.jpg"]
+---
+
+<BackgroundImage
+  src="src/assets/abstraction3.png"
+>
+  <ContentSection title="AFFILIATES" id="affiliates">
+    <Fragment slot="lead">
+      <div class="flex flex-row items-center gap-4" >
+        {
+          items.map(item => <Image src={item} alt={item} width={100} height={100}/>)
+        }
+      </div>
+    </Fragment>
+  </ContentSection>
+</BackgroundImage>

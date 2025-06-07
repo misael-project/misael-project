@@ -1,0 +1,13 @@
+---
+const { post } = Astro.props;
+---
+<Fragment>
+  <a
+    href={`/blog/${post.slug}`}
+    class="flex-row items-center justify-center border-bottom-2 px-6 py-4"
+  >
+    <h2 class="text-2xl font-bold highlight-text text-center"> {post.data.title} </h2>
+    <h2 class="text-m text-gray-500 text-center"> by: {post.data.author} </h2>
+    <h2 class="text-sm text-gray-500 text-center"> {post.data.date} </h2>
+  </a>
+</Fragment>

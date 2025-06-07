@@ -1,0 +1,54 @@
+---
+import { Picture } from "@astrojs/image/components";
+import type { CafaCircleData } from "~/types";
+import CatalogModal from "./CatalogModal";
+
+export interface Props {
+  circle: CafaCircleData;
+}
+
+const { circle } = Astro.props;
+
+const widths = [450, 800];
+const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
+const gSiteLink = `https://sites.google.com/misaelproject.com/katalog-cafa/blok-${circle.data.block.substring(0,1).toLowerCase()}/${circle.data.block.toLowerCase()}`
+---
+
+<div class="group aspect-square hover:!text-default rounded-2xl">
+  <figure class="relative h-full w-full overflow-hidden rounded-2xl">
+    <Picture
+      class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20 rounded-2xl"
+      src={`https://drive.google.com/thumbnail?id=${circle.data.thumbId}&sz=w600`}
+      widths={widths}
+      sizes={sizes}
+      aspectRatio={1}
+      background="white"
+      alt={`Example artwork from ${circle.data.name}`}
+    />
+    <div class="absolute inset-0 mx-4 my-4 px-2 py-2 font-extrabold uppercase text-xl border rounded-xl border-gray-700">
+      <h3 class="boder bg-white/50 rounded-lg w-16 text-center py-2">
+        {circle.data.block}
+      </h3>
+    </div>
+    <figcaption class="absolute inset-0 rounded-xl">
+      <div
+        class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
+      >
+        <h3 class="text-center font-extrabold uppercase text-xl">
+          {circle.data.name}
+        </h3>
+        {
+          circle.data.links.map((link) => (
+            <a class="border border-current px-4 py-2 text focus:outline-none" target="_blank" href={link.link}>{link.title}</a>
+          ))
+        }
+        <!-- <a class="border border-current px-4 py-2 text focus:outline-none" target="_blank" href={gSiteLink}>Catalogue</a> -->
+        {
+          circle.data.catalogue.length ?
+          <CatalogModal itemIds={circle.data.catalogue} client:load /> :
+          null
+        }
+      </div>
+    </figcaption>
+  </figure>
+</div>

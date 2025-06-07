@@ -1,0 +1,12 @@
+---
+import ContentSection from "./content-section.astro";
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<ContentSection id="blogpost">
+  <h1 class="text-center font-extrabold tracking-tight text-6xl highlight-title pb-12">{post.data.title}</h1>
+  <div class="max-w-6xl text-justify flex-col space-y-10">
+    <Content/>
+  </div>
+</ContentSection>

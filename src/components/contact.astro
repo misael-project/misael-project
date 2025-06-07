@@ -1,0 +1,72 @@
+---
+import {
+  BackgroundImage,
+} from "astro-imagetools/components";
+import ContentSection from "~/components/content-section.astro";
+import { Image } from '@astrojs/image/components';
+import facebookIcon from '~/assets/misael-facebook.png'
+import instagramIcon from '~/assets/misael-instagram.png'
+import ContactForm from "./ContactForm";
+import twitterIcon from '~/assets/twitter-icon.png'
+
+
+const items = [
+  {
+    image: facebookIcon,
+    alt: 'Misael Facebook Icon',
+    link: 'https://www.facebook.com/misaelproject'
+  },
+  {
+    image: instagramIcon,
+    alt: 'Misael Instagram Icon',
+    link: 'https://www.instagram.com/misaelproject/'
+  },
+  // {
+  //   image: twitterIcon,
+  //   alt: 'twitter icon',
+  //   link: 'https://www.twitter.com'
+  // },
+]
+
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const from = data.get("from");
+    const contact = data.get("contact");
+    const content = data.get("content");
+    fetch('https://discord.com/api/webhooks/1251017102568198275/s5LuV6PMHglvYKGqP3VABn4KXCkhW0_J_26ga2igrDccRo3tYELLSVx3kEVZbqDBQCaR', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content: 'ahoy'
+      })
+    })
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
+---
+
+<ContentSection title="CONTACT" id="contacts">
+  <Fragment slot="lead">
+    Email us at <span class="highlight-text"><a href="mailto:info@misalproject.com" target="_blank">info@misalproject.com</a></span>
+    <br>
+    <div class="dflex flex-row items-center gap-6 my-4" >
+      {
+        items.map(item => <a href={item.link} target="_blank"><Image src={item.image} alt={item.alt} width={50} height={50}/></a>)
+      }
+    </div>
+    <BackgroundImage
+      src="src/assets/abstraction3.png"
+    >
+      <ContactForm client:load/>
+  </BackgroundImage>
+  </Fragment>
+</ContentSection>

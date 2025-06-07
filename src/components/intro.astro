@@ -1,0 +1,14 @@
+---
+import { Picture } from '@astrojs/image/components';
+import ContentSection from "~/components/content-section.astro";
+import misaelLogo from "~/assets/misaelLogo.png"
+---
+
+<ContentSection id="intro">
+  <Picture background="#FFFFFF" slot="eyebrow" src={misaelLogo} alt={"Logo Misael Project with Text"} widths={[200, 400, 800]} aspectRatio={1} sizes="(max-height: 1000px) 50vh, 500px" />
+  <Fragment ="lead">
+    <h2 class="text-4xl font-bold text-center">
+      Your <span class="font-bold highlight-text">comrade</span> in your creative journey
+    </h2>
+  </Fragment>
+</ContentSection>
